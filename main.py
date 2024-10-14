@@ -149,6 +149,11 @@ cliente = session.query(Cliente).filter_by(email = email_cliente).first()
 
 if cliente:
      print (f"{cliente.id} - {cliente.nome} - {cliente.email} - {cliente.senha} ")
-     
+
 else:
     print("Cliente não encontrado.")
+
+
+#Fechando conexão
+
+session.close()
