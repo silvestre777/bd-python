@@ -40,10 +40,10 @@ class Cliente(Base):
     nome = Column("nome", String)
     email = Column("email", String)
     senha = Column("senha", String)
-    
-	def __init__(self, nome: str, email: str, senha: str):
+	#Definindo atributos da classe.
+    def __init__(self, nome:str, email:str, senha:str):
         self.nome = nome
         self.email = email
         self.senha = senha
         
-base.metadata.create_all(bind = MEU_BANCO)
+Base.metadata.create_all(bind = MEU_BANCO)
