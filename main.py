@@ -114,4 +114,41 @@ for cliente in lista_clientes:
     print (f"{cliente.id} - {cliente.nome} - {cliente.email} - {cliente.senha} ")
 
 
+# D - Delete - DELETE - Excluir
 
+print("\nExcluindo os dados de um cliente.")
+email_cliente = input("Digite o e-mail do cliente que será excluído: ")
+
+cliente = session.query(Cliente).filter_by(email = email_cliente).first()
+
+if cliente:
+    session.delete(cliente)
+    session.commit()
+    print(f"Cliente {cliente.nome} excluído com sucesso!")
+
+else:
+    print("Cliente não encontrado.")
+
+
+#R - Read - SELECT - Consulta
+
+print("\nExibindo dados de todos os clientes.")
+lista_clientes = session.query(Cliente).all() #Consulta ao banco de dados "query" esconde o select - e vc seleciona a tabela que vc deseja que ele puxe
+
+for cliente in lista_clientes:
+    print (f"{cliente.id} - {cliente.nome} - {cliente.email} - {cliente.senha} ")
+
+
+
+# R - Read - SELECT - Consulta
+
+print("Consultando os dados de apenas um cliente.")
+email_cliente = input("Digite o e-mail do cliente")
+
+cliente = session.query(Cliente).filter_by(email = email_cliente).first()
+
+if cliente:
+     print (f"{cliente.id} - {cliente.nome} - {cliente.email} - {cliente.senha} ")
+     
+else:
+    print("Cliente não encontrado.")
